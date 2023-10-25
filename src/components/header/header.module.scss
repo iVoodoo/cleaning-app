@@ -1,0 +1,14 @@
+@import '@styles/variables';
+
+.header {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: max-content auto;
+  column-gap: 84px;
+  align-items: center;
+
+  &__logo {
+    width: 216px;
+    height: 65px;
+  }
+}

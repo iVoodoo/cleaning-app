@@ -1,0 +1,29 @@
+@import '@styles/variables';
+
+.wrapper {
+  margin: 0 auto;
+  margin-top: 95px;
+  margin-bottom: 65px;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 100px;
+  justify-content: center;
+  align-content: center;
+  .error {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    &__code {
+      font-size: 128px;
+      font-family: $font-rubik;
+      font-weight: 800;
+      margin: 0;
+    }
+  }
+
+  .graphic {
+    justify-self: center;
+  }
+}

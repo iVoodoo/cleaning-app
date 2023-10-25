@@ -1,0 +1,20 @@
+@import '@styles/variables';
+
+.button {
+  border: none;
+  height: 80px;
+  padding: 0;
+  background-color: $grey;
+  font-weight: 500;
+  font-family: $font-roboto;
+  font-size: 20px;
+  box-shadow: $bs-dark-aqua-4;
+  cursor: pointer;
+
+  &_long {
+    width: 380px;
+  }
+  &_short {
+    width: 280px;
+  }
+}
