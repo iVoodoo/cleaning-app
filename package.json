@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.6",
     "axios": "^1.5.1",
     "clsx": "^2.0.0",
+    "graphql": "^16.8.1",
     "lucide-react": "^0.288.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

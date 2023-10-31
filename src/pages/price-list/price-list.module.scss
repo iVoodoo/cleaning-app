@@ -1,0 +1,53 @@
+@import '@styles/variables';
+
+.section {
+  margin-top: 70px;
+  margin-bottom: 140px;
+
+  &__title {
+    font-family: $font-rubik;
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+  &__content {
+    width: 95%;
+    margin: 70px auto;
+
+    border-collapse: collapse;
+    .table {
+      margin: 0 auto;
+      width: 100%;
+      border-collapse: collapse;
+
+      &__header {
+        background-color: $dark-aqua-30;
+
+        & > tr > th {
+          border: 0;
+          font-family: $font-roboto;
+          font-size: 20px;
+          font-weight: 700;
+          padding: 23px 5px;
+        }
+      }
+
+      &__body {
+        & > tr {
+          border-bottom: 1px solid $pale-green;
+
+          & > td {
+            width: 33%;
+            text-align: center;
+            padding: 33px 5px;
+
+            &:nth-child(2n) {
+              border-left: 1px solid $pale-green;
+              border-right: 1px solid $pale-green;
+            }
+          }
+        }
+      }
+    }
+  }
+}

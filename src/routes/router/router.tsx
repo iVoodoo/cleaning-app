@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import { PageLayout } from '@components'
-import { ErrorPage, MainPage, ServicesPage } from '@pages'
+import { ErrorPage, MainPage, PriceList, ServicesPage } from '@pages'
 import { RoutesLink } from '@types'
 
 export const router = createBrowserRouter([
@@ -14,7 +14,14 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           { index: true, element: <MainPage /> },
-          { path: RoutesLink.SERVICES, element: <ServicesPage /> },
+          {
+            path: RoutesLink.SERVICES,
+            element: <ServicesPage />
+          },
+          {
+            path: RoutesLink.PRICE_LIST,
+            element: <PriceList />
+          },
           {
             path: '*',
             element: <ErrorPage />

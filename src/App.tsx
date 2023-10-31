@@ -1,13 +1,14 @@
 import { RouterProvider } from 'react-router-dom'
 
-import { PageLayout } from '@components'
+import { ApolloProvider } from '@apollo/client'
+import { client } from '@apollo-graphql'
 import { router } from '@routes'
 
 const App = () => {
   return (
-    <RouterProvider router={router}>
-      <PageLayout />
-    </RouterProvider>
+    <ApolloProvider client={client}>
+      <RouterProvider router={router} />
+    </ApolloProvider>
   )
 }
 export default App

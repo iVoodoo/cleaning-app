@@ -12,6 +12,7 @@ export default defineConfig({
       '@routes': path.resolve(__dirname, './src/routes'),
       '@styles': path.resolve(__dirname, './src/styles'),
       '@assets': path.resolve(__dirname, './src/assets'),
+      '@apollo-graphql': path.resolve(__dirname, './src/apollo-graphql'),
       '@reduxStore': path.resolve(__dirname, './src/reduxStore'),
       '@services': path.resolve(__dirname, './src/services'),
       '@types': path.resolve(__dirname, './src/types'),
