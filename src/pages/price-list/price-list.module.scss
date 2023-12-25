@@ -1,53 +1,76 @@
 @import '@styles/variables';
 
-.section {
-  margin-top: 70px;
-  margin-bottom: 140px;
+.content {
+  width: 95%;
+  margin: 70px auto;
 
-  &__title {
-    font-family: $font-rubik;
-    font-size: 48px;
-    font-weight: 700;
-  }
-
-  &__content {
-    width: 95%;
-    margin: 70px auto;
-
+  border-collapse: collapse;
+  .table {
+    margin: 0 auto;
+    width: 100%;
     border-collapse: collapse;
-    .table {
-      margin: 0 auto;
-      width: 100%;
-      border-collapse: collapse;
 
-      &__header {
-        background-color: $dark-aqua-30;
+    &__header {
+      background-color: $dark-aqua-30;
 
-        & > tr > th {
-          border: 0;
-          font-family: $font-roboto;
-          font-size: 20px;
-          font-weight: 700;
-          padding: 23px 5px;
-        }
+      & > tr > th {
+        border: 0;
+        font-family: $font-roboto;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 23px 5px;
       }
+    }
 
-      &__body {
-        & > tr {
-          border-bottom: 1px solid $pale-green;
+    &__body {
+      & > tr {
+        border-bottom: 1px solid $pale-green;
 
-          & > td {
-            width: 33%;
-            text-align: center;
-            padding: 33px 5px;
+        & > td {
+          width: 33%;
+          text-align: center;
+          padding: 33px 5px;
 
-            &:nth-child(2n) {
-              border-left: 1px solid $pale-green;
-              border-right: 1px solid $pale-green;
-            }
+          &:nth-child(2n) {
+            border-left: 1px solid $pale-green;
+            border-right: 1px solid $pale-green;
           }
         }
       }
+    }
+  }
+}
+
+.loader {
+  text-align: center;
+}
+
+.error {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  .error {
+    &__emoji {
+      stroke-width: 1px;
+      width: 64px;
+      height: 64px;
+      animation: emoji-rotation 1.6s infinite linear;
+
+      @keyframes emoji-rotation {
+        0% {
+          transform: rotateZ(0deg);
+        }
+        100% {
+          transform: rotateZ(360deg);
+        }
+      }
+    }
+    &__text {
+      font-size: 20px;
+      font-weight: 500;
     }
   }
 }

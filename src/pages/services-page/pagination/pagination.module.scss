@@ -1,0 +1,27 @@
+@import '@styles/variables';
+
+.pagination {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
+  align-items: center;
+
+  &__item {
+    background-color: $dark-aqua-30;
+    font-size: 20px;
+    padding: 11px;
+    padding-inline: 20px;
+    outline: none;
+    border-radius: $br-20;
+    border: 1px solid $dark-green;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease-in;
+
+    &:hover,
+    &--active {
+      background-color: $dark-aqua;
+    }
+  }
+}

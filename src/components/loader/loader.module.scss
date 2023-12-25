@@ -1,0 +1,35 @@
+@import '@styles/variables';
+
+.loader {
+  margin: 0 auto;
+  display: block;
+  border: 5px solid $dark-green;
+  border-radius: $br-50;
+  border-bottom-color: transparent;
+  animation: loader-rotation 1s infinite linear;
+
+  &_s {
+    border-width: 3px;
+    height: 24px;
+    width: 24px;
+  }
+  &_m {
+    border-width: 4px;
+    height: 48px;
+    width: 48px;
+  }
+
+  &_l {
+    height: 64px;
+    width: 64px;
+  }
+
+  @keyframes loader-rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

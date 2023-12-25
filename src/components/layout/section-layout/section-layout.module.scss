@@ -1,0 +1,11 @@
+@import '@styles/variables';
+
+.section {
+  margin: 70px 0;
+
+  &__title {
+    font-family: $font-rubik;
+    font-size: 48px;
+    font-weight: 700;
+  }
+}
