@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 export const SERVICE_SHORT = gql`
-  query GetServicesShort($page: Int, $pageSize: Int) {
-    services(pagination: { page: $page, pageSize: $pageSize }) {
+  query GetServicesShort($page: Int, $pageSize: Int, $filters: ServiceFiltersInput) {
+    services(filters: $filters, pagination: { page: $page, pageSize: $pageSize }) {
       data {
         attributes {
           title

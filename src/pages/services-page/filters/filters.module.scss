@@ -1,0 +1,76 @@
+@import '@styles/variables';
+
+.filter {
+  &__title {
+    line-height: 1;
+    font-size: 20px;
+    font-weight: 700;
+
+    &::after {
+      display: inline-flex;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: $pale-green;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    // background-color: $dark-aqua-30;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: $dark-green;
+      width: 100%;
+      height: 1px;
+      transform-origin: right;
+      transition: transform 0.3s ease-in-out;
+      transform: scaleX(0);
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+
+    background-color: transparent;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: left;
+    font-weight: 400;
+    text-transform: lowercase;
+
+    &--selected::after {
+      margin-right: 10px;
+      display: flex;
+      content: '';
+      background-color: $dark-green;
+      border-radius: $br-50;
+      height: 10px;
+      aspect-ratio: 1;
+    }
+  }
+}

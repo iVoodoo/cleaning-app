@@ -7,13 +7,15 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "gen": "yarn graphql-codegen --watch"
   },
   "dependencies": {
     "@apollo/client": "^3.8.6",
     "axios": "^1.5.1",
     "clsx": "^2.0.0",
     "graphql": "^16.8.1",
+    "graphql-request": "^6.1.0",
     "lucide-react": "^0.288.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -21,6 +23,9 @@
     "sass": "^1.69.4"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/gql-tag-operations-preset": "^2.1.0",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
     "@types/node": "^20.8.7",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",

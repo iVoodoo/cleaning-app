@@ -1,7 +1,10 @@
+import { ServiceEntity } from 'gql/graphql'
 import { Frown } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { Loader } from '@components'
+
+import { DataNotFound } from '../data-not-found/data-not-found'
 
 import styles from './services-section.module.scss'
 
@@ -29,17 +32,21 @@ export const ServicesSection: React.FC<IServicesSection> = ({ loading, error, da
     )
   }
 
+  if (data.services.data.length === 0) {
+    return <DataNotFound />
+  }
+
   return (
     <div className={styles.service}>
-      {data.services.data.map((service) => (
-        <Link to={service.attributes.slug} className={styles.service__item} key={service.attributes.slug}>
+      {data.services.data.map((service: ServiceEntity) => (
+        <Link to={service.attributes!.slug!} className={styles.service__item} key={service.attributes!.slug}>
           <img
-            src={import.meta.env.VITE_STRAPI_URL + service.attributes.preview_image.data.attributes.url}
+            src={import.meta.env.VITE_STRAPI_URL + service.attributes!.preview_image.data!.attributes!.url}
             loading='lazy'
-            alt={`${service.attributes.title} service`}
+            alt={`${service.attributes!.title} service`}
             className={styles.item__image}
           />
-          <p className={styles.item__title}>{service.attributes.title}</p>
+          <p className={styles.item__title}>{service.attributes!.title}</p>
         </Link>
       ))}
     </div>
