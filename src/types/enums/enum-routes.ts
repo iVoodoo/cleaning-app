@@ -1,5 +1,6 @@
 export enum RoutesLink {
   SERVICES = '/services',
+  SERVICE = '/services/:slug',
   PRICE_LIST = '/price-list',
   ABOUT_US = '/about-us',
   CONTACTS = '/contacts',

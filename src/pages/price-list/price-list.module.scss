@@ -42,35 +42,8 @@
 }
 
 .loader {
-  text-align: center;
-}
-
-.error {
-  display: flex;
   margin: 0 auto;
+  height: calc(100vh - 350px);
+  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 30px;
-
-  .error {
-    &__emoji {
-      stroke-width: 1px;
-      width: 64px;
-      height: 64px;
-      animation: emoji-rotation 1.6s infinite linear;
-
-      @keyframes emoji-rotation {
-        0% {
-          transform: rotateZ(0deg);
-        }
-        100% {
-          transform: rotateZ(360deg);
-        }
-      }
-    }
-    &__text {
-      font-size: 20px;
-      font-weight: 500;
-    }
-  }
 }

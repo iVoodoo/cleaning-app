@@ -75,7 +75,10 @@ export const Menu = () => {
         <li>
           <Link
             to={cartMenuItem.link}
-            className={cn(styles.menu__item, { [styles.menu__item_active]: cartMenuItem.link === activePathname })}
+            className={cn(styles.menu__item, styles['menu__item--cart'], {
+              [styles.menu__item_active]: cartMenuItem.link === activePathname
+            })}
+            data-cart='92'
           >
             <ShoppingCart />
           </Link>

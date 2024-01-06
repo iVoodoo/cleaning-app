@@ -3,26 +3,26 @@ import { Frown } from 'lucide-react'
 
 import { useQuery } from '@apollo/client'
 import { SERVICE_FOR_PRICE_LIST } from '@apollo-graphql'
-import { Loader, SectionLayout } from '@components'
+import { Error, Loader, SectionLayout } from '@components'
 
 import styles from './price-list.module.scss'
 
 export const PriceList: React.FC = () => {
   const { loading, error, data } = useQuery(SERVICE_FOR_PRICE_LIST)
 
+  if (loading) {
+    return (
+      <div className={styles.loader}>
+        <Loader size='l' />
+      </div>
+    )
+  }
+  if (error) {
+    return <Error />
+  }
+
   return (
     <SectionLayout title='Прайс-лист'>
-      {loading && (
-        <section className={styles.loader}>
-          <Loader size='l' />
-        </section>
-      )}
-      {error && (
-        <section className={styles.error}>
-          <Frown className={styles.error__emoji} />
-          <p className={styles.error__text}>Что-то пошло не так...</p>
-        </section>
-      )}
       {data && (
         <div className={styles.content}>
           <table className={styles.table}>

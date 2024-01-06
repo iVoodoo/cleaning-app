@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 import { useQuery } from '@apollo/client'
 import { CATEGORIES, SERVICE_SHORT } from '@apollo-graphql'
-import { SectionLayout } from '@components'
+import { Error, Loader, SectionLayout } from '@components'
 
 import { Filters } from './filters/filters'
 import { Pagination } from './pagination/pagination'
@@ -42,6 +42,7 @@ export const ServicesPage = () => {
   })
 
   const onFilterSelect = (id: string, name: string) => {
+    setCurrentPage(1)
     if (selectedCategories?.some((item) => item.id === id)) {
       setSelectedCategories((prev) => [...prev!.filter((item) => item.id !== id)])
     } else {
@@ -57,20 +58,31 @@ export const ServicesPage = () => {
       }
     })
   }
+  if (loading) {
+    return (
+      <div className={styles.loader}>
+        <Loader size='l' />
+      </div>
+    )
+  }
+
+  if (error) {
+    return <Error />
+  }
 
   return (
     <SectionLayout title='Наши услуги'>
       <div className={styles['services-wrapper']}>
-        <div className={styles.filter}>
-          {categoriesData.data && categories && (
+        {categoriesData.data && categories && (
+          <div className={styles.filter}>
             <Filters
               title='Вид услуги'
               selectedItems={selectedCategories || []}
               items={categories!.map((item) => ({ id: item.id as string, name: item.attributes!.name }))}
               onSelectedItem={onFilterSelect}
             />
-          )}
-        </div>
+          </div>
+        )}
         <ServicesSection loading={loading} error={!!error} data={data} />
       </div>
       {data && <Pagination pageCount={pageCount!} currentPage={currentPage} onClick={onLoadMore} />}

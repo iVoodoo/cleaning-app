@@ -1,0 +1,42 @@
+@import '@styles/variables';
+
+.service {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: row;
+  column-gap: 100px;
+}
+
+.description {
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  &__image {
+    filter: grayscale(100%);
+  }
+
+  &__order {
+    margin-top: 77px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .order {
+      &__price {
+        display: flex;
+        flex-direction: column;
+        row-gap: 13px;
+
+        .price {
+          &__title {
+            font-size: 20px;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}

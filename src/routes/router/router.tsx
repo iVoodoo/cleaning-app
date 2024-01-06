@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import { PageLayout } from '@components'
-import { ErrorPage, MainPage, PriceList, ServicesPage } from '@pages'
+import { ErrorPage, MainPage, PriceList, ServicePage, ServicesPage } from '@pages'
 import { RoutesLink } from '@types'
 
 export const router = createBrowserRouter([
@@ -17,6 +17,10 @@ export const router = createBrowserRouter([
           {
             path: RoutesLink.SERVICES,
             element: <ServicesPage />
+          },
+          {
+            path: RoutesLink.SERVICE,
+            element: <ServicePage />
           },
           {
             path: RoutesLink.PRICE_LIST,

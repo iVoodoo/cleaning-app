@@ -2,7 +2,7 @@ import { ServiceEntity } from 'gql/graphql'
 import { Frown } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
-import { Loader } from '@components'
+import { Error, Loader } from '@components'
 
 import { DataNotFound } from '../data-not-found/data-not-found'
 
@@ -24,12 +24,7 @@ export const ServicesSection: React.FC<IServicesSection> = ({ loading, error, da
   }
 
   if (error) {
-    return (
-      <section className={styles.error}>
-        <Frown className={styles.error__emoji} />
-        <p className={styles.error__text}>Что-то пошло не так...</p>
-      </section>
-    )
+    return <Error />
   }
 
   if (data.services.data.length === 0) {

@@ -55,5 +55,18 @@
       background-color: $dark-aqua;
       opacity: 1;
     }
+
+    &--cart::before {
+      content: attr(data-cart);
+      position: absolute;
+      font-weight: 700;
+      font-size: 16px;
+      background-color: $electric;
+      padding: 5px;
+      border-radius: $br-50;
+      top: -20px;
+      right: -10px;
+      color: $dark-green;
+    }
   }
 }
