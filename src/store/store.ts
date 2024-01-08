@@ -3,9 +3,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import cartReducer from './cart/cart-slice'
 
 export const store = configureStore({
-  reducer: {
-    cartReducer
-  }
+  reducer: { cartReducer }
 })
 
 export type AppDispatch = typeof store.dispatch

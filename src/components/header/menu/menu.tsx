@@ -3,6 +3,8 @@ import { ShoppingCart, User } from 'lucide-react'
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
+import { useAppSelector } from '@hooks'
+import { cartSelector } from '@store'
 import { RoutesLink } from '@types'
 
 import styles from './menu.module.scss'
@@ -54,6 +56,7 @@ export const Menu = () => {
   React.useEffect(() => {
     setActivePathname(location.pathname)
   }, [location])
+  const cart = useAppSelector(cartSelector)
   return (
     <nav className={styles.wrapper}>
       <ul className={styles.menu}>
@@ -78,7 +81,7 @@ export const Menu = () => {
             className={cn(styles.menu__item, styles['menu__item--cart'], {
               [styles.menu__item_active]: cartMenuItem.link === activePathname
             })}
-            data-cart='92'
+            data-cart={cart.items.length}
           >
             <ShoppingCart />
           </Link>

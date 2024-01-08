@@ -6,7 +6,8 @@ import { useQuery } from '@apollo/client'
 import { SERVICE_BY_SLUG } from '@apollo-graphql'
 import { Button, Error, Loader, SectionLayout } from '@components'
 import { useAppDispatch, useAppSelector } from '@hooks'
-import { addToCart, cartSelector } from '@store'
+import { addToCart, cartSelector, removeFromCart } from '@store'
+import { IItemInCart } from '@types'
 
 import styles from './service-page.module.scss'
 
@@ -17,13 +18,24 @@ export const ServicePage = () => {
       slug
     }
   })
+  enum ButtonTitle {
+    ADD_TO_ORDER = 'Добавить в заказ',
+    REMOVE_FROM_ORDER = 'Удалить из заказа'
+  }
 
-  const value = useAppSelector(cartSelector)
-  console.log(value.length)
+  const { items } = useAppSelector(cartSelector)
   const dispatch = useAppDispatch()
 
-  const orderClick = ({ serviceName, price }: { serviceName: string; price: number }) => {
-    dispatch(addToCart({ serviceName, price }))
+  const isItemInCart = (id: string) => {
+    return !!items.find((item) => item.id === id)
+  }
+
+  const orderClick = ({ id, serviceName, price }: IItemInCart) => {
+    if (isItemInCart(id)) {
+      dispatch(removeFromCart(id))
+    } else {
+      dispatch(addToCart({ id, serviceName, price }))
+    }
   }
 
   if (loading) {
@@ -58,12 +70,13 @@ export const ServicePage = () => {
               length='short'
               onClick={() =>
                 orderClick({
+                  id: data!.services!.data[0].id!,
                   serviceName: data!.services!.data[0].attributes!.title,
                   price: data!.services!.data[0].attributes!.price
                 })
               }
             >
-              Заказать
+              {isItemInCart(data!.services!.data[0].id!) ? ButtonTitle.REMOVE_FROM_ORDER : ButtonTitle.ADD_TO_ORDER}
             </Button>
           </div>
         </div>
