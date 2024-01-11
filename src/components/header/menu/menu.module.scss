@@ -68,5 +68,16 @@
       right: -10px;
       color: $dark-green;
     }
+    .cart__dropdown {
+      z-index: 100;
+      position: absolute;
+      padding-top: 30px;
+      right: 0;
+      display: none;
+
+      &--visible {
+        display: block;
+      }
+    }
   }
 }

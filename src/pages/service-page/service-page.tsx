@@ -30,11 +30,11 @@ export const ServicePage = () => {
     return !!items.find((item) => item.id === id)
   }
 
-  const orderClick = ({ id, serviceName, price }: IItemInCart) => {
-    if (isItemInCart(id)) {
-      dispatch(removeFromCart(id))
+  const orderClick = (item: IItemInCart) => {
+    if (isItemInCart(item.id)) {
+      dispatch(removeFromCart(item))
     } else {
-      dispatch(addToCart({ id, serviceName, price }))
+      dispatch(addToCart(item))
     }
   }
 

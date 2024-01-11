@@ -6,4 +6,5 @@ export interface IItemInCart {
 
 export interface ICart {
   items: IItemInCart[]
+  totalPrice: number
 }

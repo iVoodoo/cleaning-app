@@ -1,0 +1,133 @@
+@import '@styles/variables';
+
+.cart__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  .empty {
+    &__emoji {
+      stroke-width: 1px;
+      width: 64px;
+      height: 64px;
+    }
+    &__text {
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+}
+
+.cart-wrapper {
+  width: 85%;
+  margin: 0 auto;
+
+  .cart {
+    display: flex;
+    flex-direction: column;
+    row-gap: 45px;
+
+    &__item {
+      display: grid;
+      grid-template-columns: 4fr 2fr 1fr;
+      grid-template-rows: 85px;
+      column-gap: 20px;
+      align-items: stretch;
+
+      & > p,
+      button {
+        padding-block: 27px;
+        text-align: center;
+        border-radius: $br-20;
+        background-color: $dark-electric;
+        border: 1px solid $pale-green;
+      }
+
+      .item {
+        &__title {
+          font-size: 20px;
+        }
+        &__price {
+          font-size: 20px;
+        }
+        &__remove {
+          cursor: pointer;
+          &--icon {
+            stroke-width: 1px;
+            transition: stroke-width 0.2s ease-in;
+          }
+
+          &:hover {
+            .item__remove--icon {
+              stroke-width: 2px;
+            }
+          }
+        }
+      }
+    }
+    &::after {
+      content: '';
+      display: inline-flex;
+      margin-top: 10px;
+      height: 1px;
+      width: 100%;
+      background-color: $dark-green;
+    }
+  }
+  .summarize {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    grid-template-rows: 85px;
+    column-gap: 20px;
+    align-items: center;
+
+    & > p {
+      padding-block: 27px;
+    }
+    &__title {
+      text-align: right;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    &__price {
+      text-align: center;
+      border-radius: $br-20;
+      background-color: $dark-electric;
+      border: 1px solid $pale-green;
+      font-size: 20px;
+    }
+  }
+
+  .cart-clear {
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: end;
+
+    &__button {
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background-color: $dark-green;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        transform-origin: left;
+        transform: scale(1);
+      }
+    }
+  }
+}

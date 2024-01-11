@@ -7,6 +7,8 @@ import { useAppSelector } from '@hooks'
 import { cartSelector } from '@store'
 import { RoutesLink } from '@types'
 
+import { CartDropdown } from './cart-dropdown/cart-dropdown'
+
 import styles from './menu.module.scss'
 
 const menuItems: MenuItemProps[] = [
@@ -52,6 +54,7 @@ type MenuItemProps = {
 
 export const Menu = () => {
   const [activePathname, setActivePathname] = React.useState<string>('')
+  const [isOpen, setIsOpen] = React.useState<boolean>(false)
   const location = useLocation()
   React.useEffect(() => {
     setActivePathname(location.pathname)
@@ -75,8 +78,9 @@ export const Menu = () => {
             <User />
           </Link>
         </li>
-        <li>
+        <li onMouseLeave={() => setIsOpen(false)}>
           <Link
+            onMouseOver={() => setIsOpen(true)}
             to={cartMenuItem.link}
             className={cn(styles.menu__item, styles['menu__item--cart'], {
               [styles.menu__item_active]: cartMenuItem.link === activePathname
@@ -84,6 +88,14 @@ export const Menu = () => {
             data-cart={cart.items.length}
           >
             <ShoppingCart />
+            <div
+              className={cn(styles.cart__dropdown, {
+                [styles['cart__dropdown--visible']]: isOpen
+              })}
+              onMouseLeave={() => setIsOpen(false)}
+            >
+              <CartDropdown items={cart.items} />
+            </div>
           </Link>
         </li>
       </ul>

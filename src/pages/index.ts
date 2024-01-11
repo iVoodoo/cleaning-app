@@ -1,3 +1,4 @@
+export * from './cart-page/cart-page'
 export * from './error-page/error-page'
 export * from './main-page/main-page'
 export * from './price-list/price-list'
